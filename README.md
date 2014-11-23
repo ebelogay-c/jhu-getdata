@@ -5,13 +5,13 @@ Coursera project for Getting and Cleaning Data (in Data Science specialization b
 
 ## Input
 All data from the original zip archive was extracted into project directory `data` with the following exception: 
-the `Inertial Signals` were excluded since they were not used in the analysis.  For simplicity, the script `run_analysis.R` "expects" the input data to be in the local direectory `data` as it is here.
+the `Inertial Signals` were excluded since they were not used in the analysis.  For simplicity, the script `run_analysis.R` "expects" the input data to be in the local directory `data` as it is here.
 
 Warning: the file `data/train/X_train.txt` excedes the GitHub file size.  It is provided here during peer evaluation, but will be removed afterwards.
 
 
 ## Output
-The output of Step 5 is in file `means.txt`.  Please see codebook.md for its structure.
+The output of Step 5 is in file `means.txt`.  Please see `codebook.md` for its structure.
 
 The tidy space-separated file contains 160 rows and 68 columns, with a one-row header.  To read the data into R, use the command
 ```
