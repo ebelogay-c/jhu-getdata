@@ -78,12 +78,13 @@ names(ms) <- c("subject", fea, "activity")
 
 
 ## 5. Create a tidy data set with the average of each variable for each activity and each subject.
-# group by subject and actiity
-means <- aggregate(ms, by=list(ms$subject, ms$activity), FUN=mean)
+# group means by subject and activity
+# note: exclude subject and activity from the data to be grouped
+means <- aggregate(ms[2:(nfea-1)],
+                   by=list(ms$subject, ms$activity),
+                   FUN=mean)
 
-# pretty up: remove old grouping columns: 3rd (subject) and last (activity)
-means <- means[, c(-3, -ncol(means))]
-# pretty up: label new grouping columns
+# pretty up: proper;y label the grouping columns (now: col 1 and 2)
 colnames(means)[1:2] <- c("subject", "activity")
 dim(means)
 
