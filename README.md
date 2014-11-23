@@ -13,10 +13,14 @@ Warning: the file `data/train/X_train.txt` excedes the GitHub file size.  It is 
 ## Output
 The output of Step 5 is in file `means.txt`.  Please see `codebook.md` for its structure.
 
-The tidy space-separated file contains 160 rows and 68 columns, with a one-row header.  To read the data into R, use the command
+The tidy space-separated file contains 160 rows and 68 columns, with a one-row header.  All string values (column names and activity values) are explictly quoted (the default behavior of `write.table`), to ensure that they are read properly as strings my most input commands in R. 
+
+To read the data into R, use the command
 ```
 means <- read.table("means.txt", header=TRUE)
 ```
+
+The last section in the script provides and example how to read the data back into R and how to verify its shape and content.
 
 
 ## Processing
