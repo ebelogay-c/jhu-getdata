@@ -34,7 +34,7 @@ original: tBodyAcc-mean()-X
 modified: tBodyAcc.mean.X
 ```
 
-For full description of the meaning of each feature, please see the original files `REAAD.me` and `features_info.txt` supplied with the data.
+For full description of the meaning of each feature, please see the original files `READ.me` and `features_info.txt` supplied with the data.
 
 The value of each table cell is the mean of the feature (specified by the column name) for each value of Subject and Activity.  
 Since the original features were normalized to be between -1.0 amd 1.0, so are their means.  Therefore, each table cell should be a number between -1 and 1.
