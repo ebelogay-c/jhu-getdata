@@ -20,8 +20,6 @@ To read the data into R, use the command
 means <- read.table("means.txt", header=TRUE)
 ```
 
-The last section in the script provides and example how to read the data back into R and how to verify its shape and content.
-
 
 ## Processing
 All processing (excluding the initial unpacking of the data archive) is in the script `run_analysis.R`, as required.  Running the script will read all input files from the local `data` directory and produce the output file `means.txt` in the current directory.  
@@ -36,6 +34,8 @@ The script itself is split into 5 sections, matching the assignment.  Each secti
 ```
 ### 1. Merges the training and the test sets to create one data set.
 ```
+
+The last section in the script provides and example how to read the data back into R and how to verify its shape and content.
 
 
 
