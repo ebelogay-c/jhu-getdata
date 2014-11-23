@@ -1,9 +1,9 @@
 Variables in means.txt
 ======================
 
-The space-separated file means.txt contains 160 rowsd and 68 columns, with a header.  To read the data into R, use the command
+The space-separated file means.txt contains 160 rows and 68 columns, with a header.  To read the data into R, use the command
 ```
-rmeans <- read.table("means.txt", header=TRUE)
+means <- read.table("means.txt", header=TRUE)
 ```
 
 
@@ -26,7 +26,7 @@ Each row on the table corresponds to one of these 180 factor groups.
 Each of the remaining 66 columns (from 3 to 68) represents an aggregated feature. 
 Only 66 of the 561 original feature labels contain `-mean()` or `-std()`,
 so only those features were aggregated, as required.  
-For simplicity, features containing `-meanFreq()` were excluded (besides, they do not have matching stdFreq features).
+For simplicity, features containing `-meanFreq()` were excluded (besides, they do not have matching `stdFreq` features).
 
 All feature labels were slightly modified in the following fashion, so that they can be legal R variable names:
 ```
@@ -37,7 +37,7 @@ modified: tBodyAcc.mean.X
 For full description of the meaning of each feature, please see the original files `REAAD.me` and `features_info.txt` supplied with the data.
 
 The value of each table cell is the mean of the feature (specified by the column name) for each value of Subject and Activity.  
-Since the original features were normalized to be between -1.0 amd 1.0, so are their means.  Therefore, each table cell shoould be a number betyween -1 and 1.
+Since the original features were normalized to be between -1.0 amd 1.0, so are their means.  Therefore, each table cell should be a number between -1 and 1.
 
 
 
