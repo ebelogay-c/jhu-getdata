@@ -1,3 +1,4 @@
+### Course Project: Getting and Cleaning Data
 
 ### 1. Merges the training and the test sets to create one data set.
 message("Reading data; please be patient...")
@@ -73,37 +74,26 @@ ms <- cbind(subj, x, acty)
 rm(subj, x, acty)
 
 # 4b. Set column names
-names(ms) <- c("Subject", fea, "Activity")
+names(ms) <- c("subject", fea, "activity")
 
 
 ## 5. Create a tidy data set with the average of each variable for each activity and each subject.
-## Split, summarize, combine.
-## Note: partial results are lists (not tidy!)
-## 5a. Split data into 180 cells by Subject (30) and Activity (6)
-bysa <- split(ms[2:(nfea+1)], list(ms$Subject, ms$Activity))
+# group by subject and actiity
+means <- aggregate(ms, by=list(ms$subject, ms$activity), FUN=mean)
 
-## 5b. summarize each cell (of 180): compute col means of 48 features
-mbysa <- sapply(bysa, colMeans)
-# observe: result is transposed after sapply
-mbysa <- t(mbysa)
-
-## 5c. combine results
-# extract row.names formatted as subject.activity
-rn <- row.names(mbysa)
-# split each by "." (treated as fixed string, not regexp)
-rn2 <- sapply(rn, strsplit, ".", fixed=TRUE)
-# extract subject and activity from the list of 2-vectors
-msub <- sapply(rn2, function(x) x[1])
-mact <- sapply(rn2, function(x) x[2])
-# put it all together
-means <- data.frame(Subject=msub, Activity=mact, mbysa)
+# pretty up: remove old grouping columns: 3rd (subject) and last (activity)
+means <- means[, c(-3, -ncol(means))]
+# pretty up: label new grouping columns
+colnames(means)[1:2] <- c("subject", "activity")
 dim(means)
-# pretty up the colnames: remove double dots
-colnames(means) <- gsub("..", "", colnames(means), fixed=TRUE)
-# finally, save it to file
+
+# finally, save it to file (without row names)
 write.table(means, file="means.txt", row.names=FALSE)
 message("Done.")
+
 
 ## 6. How to read the data back into R?
 rmeans <- read.table("means.txt", header=TRUE)
 dim(rmeans)
+head(rmeans[1:5])
+tail(rmeans[1:4])
