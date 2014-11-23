@@ -35,7 +35,7 @@ The script itself is split into 5 sections, matching the assignment.  Each secti
 ### 1. Merges the training and the test sets to create one data set.
 ```
 
-The last section in the script provides and example how to read the data back into R and how to verify its shape and content.
+The last section in the script provides an example how to read the data back into R and how to verify its shape and content.
 
 
 
